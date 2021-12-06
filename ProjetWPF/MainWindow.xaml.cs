@@ -22,7 +22,7 @@ namespace ProjetWPF
     {
         public MainWindow()
         {
-            InitializeComponent();  llll
+            InitializeComponent();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)

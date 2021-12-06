@@ -7,6 +7,34 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" Loaded="Window_Loaded">
     <Grid>
-         
+        <Grid.RowDefinitions>
+            <RowDefinition Height="136*"></RowDefinition>
+            <RowDefinition Height="44*"></RowDefinition>
+            <RowDefinition Height="54*"></RowDefinition>
+            <RowDefinition Height="44*"></RowDefinition>
+            <RowDefinition Height="48*"></RowDefinition>
+            <RowDefinition Height="38*"></RowDefinition>
+            <RowDefinition Height="33*"></RowDefinition>
+            <RowDefinition Height="22*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <TextBlock Background="White" Grid.Row="0" Grid.ColumnSpan="3"></TextBlock>
+        <Image Source="/Images/LogoGSB.PNG" Grid.Row="0" Grid.Column="1" />
+        <Button Background="MediumAquamarine" Content="Régions" Grid.Row="1" Grid.Column="1"></Button>
+        <Button Background="MediumAquamarine" Content="Visiteurs" Grid.Row="2" Grid.Column="1"></Button>
+        <Button Background="MediumAquamarine" Content="Ajouter Région" Grid.Row="3" Grid.Column="1"></Button>
+        <Button Background="MediumAquamarine" Content="Ajouter Visiteur" Grid.Row="4" Grid.Column="1"></Button>
+        <Button Background="MediumAquamarine" Content="Ajouter Région à un visiteur" Grid.Row="5" Grid.Column="1"></Button>
+        <Button Background="MediumAquamarine" Content="Statistiques" Grid.Row="6" Grid.Column="1"></Button>
+        <Grid.Background>
+            <LinearGradientBrush>
+                <GradientStop Color="Aqua" Offset="0"></GradientStop>
+                <GradientStop Color="Purple" Offset="1"></GradientStop>
+            </LinearGradientBrush>
+        </Grid.Background>
     </Grid>
 </Window>
