@@ -35,7 +35,15 @@
         <TextBlock Text="Secteur : " Grid.Row="4" FontFamily="Impact" FontSize="30"></TextBlock>
         <TextBox Name="TxtNomRégion" Grid.Row="2" Grid.Column="1" Height="30" Width="160"></TextBox>
         <TextBox Name="TxtCodeRégion" Grid.Row="3" Grid.Column="1" Height="30" Width="160"></TextBox>
-        <TextBox Name="TxtSecteurRégion" Grid.Row="4" Grid.Column="1" Height="30" Width="160"></TextBox>
+        <ComboBox Name="cboCodesRegions" Grid.Row="4" Grid.Column="1" Height="30" Width="160">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock Text="{Binding PseudoBlogger}"></TextBlock>
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
         <Button Name="btnValider" Click="btnValider_Click" Content="Valider" Background="Aqua" Grid.Row="6" Grid.Column="2"></Button>
         <Button Name="btnRetour" Click="btnRetour_Click" Content="Retour" Background="Wheat" Grid.Row="6" Grid.Column="3"></Button>
     </Grid>
