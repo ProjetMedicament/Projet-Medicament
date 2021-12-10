@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ProjetWPF.Vues;
 
 namespace ProjetWPF
 {
@@ -28,6 +29,41 @@ namespace ProjetWPF
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void btnVisiteurs_Click(object sender, RoutedEventArgs e)
+        {
+            Visiteurs pvisiteurs = new Visiteurs(); 
+            pvisiteurs.ShowDialog();
+        }
+
+        private void btnAjoutRegion_Click(object sender, RoutedEventArgs e)
+        {
+            AjoutRegion pajoutregion = new AjoutRegion();
+            pajoutregion.ShowDialog();
+        }
+
+        private void btnAjoutVisiteur_Click(object sender, RoutedEventArgs e)
+        {
+            AjoutVisiteur pajoutvisiteur = new AjoutVisiteur();
+            pajoutvisiteur.ShowDialog();
+        }
+
+        private void btnAjoutRegionAVisiteur_Click(object sender, RoutedEventArgs e)
+        {
+            AjoutRegionAVisiteur pajoutregionavisiteur = new AjoutRegionAVisiteur();
+            pajoutregionavisiteur.ShowDialog();
+        }
+
+        private void btnStats_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnRegions_Click(object sender, RoutedEventArgs e)
+        {
+            Régions pregions = new Régions();
+            pregions.ShowDialog();
         }
     }
 }

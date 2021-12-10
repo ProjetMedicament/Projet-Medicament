@@ -31,7 +31,7 @@ namespace ProjetWPF.Vues
 
         private void btnRetour_Click(object sender, RoutedEventArgs e)
         {
-
+            this.Close();
         }
     }
 }
