@@ -67,6 +67,9 @@
     <Compile Include="Vues\Régions.xaml.cs">
       <DependentUpon>Régions.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Vues\Statistiques.xaml.cs">
+      <DependentUpon>Statistiques.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Vues\Visiteurs.xaml.cs">
       <DependentUpon>Visiteurs.xaml</DependentUpon>
     </Compile>
@@ -95,6 +98,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Vues\Régions.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vues\Statistiques.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
