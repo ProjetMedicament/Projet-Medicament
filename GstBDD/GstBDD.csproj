@@ -91,5 +91,15 @@
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ClassesMetier\ClassesMetier.csproj">
+      <Project>{f25f289a-f38c-4414-a586-0989267783f0}</Project>
+      <Name>ClassesMetier</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ProjetWPF\ProjetWPF.csproj">
+      <Project>{739901a1-facc-4713-b918-d42010c43ead}</Project>
+      <Name>ProjetWPF</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
