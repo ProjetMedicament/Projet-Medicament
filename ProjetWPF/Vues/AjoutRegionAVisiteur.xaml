@@ -38,7 +38,7 @@
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
-                        <TextBlock Text="{Binding CodeLabo}"></TextBlock>
+                        <TextBlock Text="{Binding Matricule}"></TextBlock>
                     </StackPanel>
                 </DataTemplate>
             </ComboBox.ItemTemplate>
@@ -48,7 +48,7 @@
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
-                        <TextBlock Text="{Binding CodeLabo}"></TextBlock>
+                        <TextBlock Text="{Binding CodeRegion}"></TextBlock>
                     </StackPanel>
                 </DataTemplate>
             </ComboBox.ItemTemplate>
