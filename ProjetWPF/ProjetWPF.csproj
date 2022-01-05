@@ -55,6 +55,24 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Vues\AjoutRegion.xaml.cs">
+      <DependentUpon>AjoutRegion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vues\AjoutRegionAVisiteur.xaml.cs">
+      <DependentUpon>AjoutRegionAVisiteur.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vues\AjoutVisiteur.xaml.cs">
+      <DependentUpon>AjoutVisiteur.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vues\Régions.xaml.cs">
+      <DependentUpon>Régions.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vues\Statistiques.xaml.cs">
+      <DependentUpon>Statistiques.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vues\Visiteurs.xaml.cs">
+      <DependentUpon>Visiteurs.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -67,6 +85,30 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Vues\AjoutRegion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vues\AjoutRegionAVisiteur.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vues\AjoutVisiteur.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vues\Régions.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vues\Statistiques.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vues\Visiteurs.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -93,6 +135,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Images\LogoGSB.PNG" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -5,8 +5,36 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjetWPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="GSB" Height="450" Width="800" Loaded="Window_Loaded">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="136*"></RowDefinition>
+            <RowDefinition Height="44*"></RowDefinition>
+            <RowDefinition Height="54*"></RowDefinition>
+            <RowDefinition Height="44*"></RowDefinition>
+            <RowDefinition Height="48*"></RowDefinition>
+            <RowDefinition Height="38*"></RowDefinition>
+            <RowDefinition Height="33*"></RowDefinition>
+            <RowDefinition Height="22*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <TextBlock Background="White" Grid.Row="0" Grid.ColumnSpan="3"></TextBlock>
+        <Image Source="/Images/LogoGSB.PNG" Grid.Row="0" Grid.Column="1" />
+        <Button Background="MediumAquamarine" Name="btnRegions"  Content="Régions" Grid.Row="1" Grid.Column="1" Click="btnRegions_Click"></Button>
+        <Button Background="MediumAquamarine" Name="btnVisiteurs" Content="Visiteurs" Grid.Row="2" Grid.Column="1" Click="btnVisiteurs_Click"></Button>
+        <Button Background="MediumAquamarine" Name="btnAjoutRegion"  Content="Ajouter Région" Grid.Row="3" Grid.Column="1" Click="btnAjoutRegion_Click"></Button>
+        <Button Background="MediumAquamarine" Name="btnAjoutVisiteur" Content="Ajouter Visiteur" Grid.Row="4" Grid.Column="1" Click="btnAjoutVisiteur_Click"></Button>
+        <Button Background="MediumAquamarine" Name="btnAjoutRegionAVisiteur" Content="Ajouter Région à un visiteur" Grid.Row="5" Grid.Column="1" Click="btnAjoutRegionAVisiteur_Click"></Button>
+        <Button Background="MediumAquamarine" Name="btnStats" Content="Statistiques" Grid.Row="6" Grid.Column="1" Click="btnStats_Click"></Button>
+        <Grid.Background>
+            <LinearGradientBrush>
+                <GradientStop Color="Aqua" Offset="0"></GradientStop>
+                <GradientStop Color="Purple" Offset="1"></GradientStop>
+            </LinearGradientBrush>
+        </Grid.Background>
     </Grid>
 </Window>
