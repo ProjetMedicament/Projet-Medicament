@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjetWPF.Vues"
         mc:Ignorable="d"
-        Title="Régions" Height="450" Width="800">
+        Title="Régions" Height="450" Width="800" Loaded="Window_Loaded">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="46*"></RowDefinition>
@@ -31,12 +31,15 @@
         </Grid.Background>
         <TextBlock Text="Liste des régions" FontSize="40" FontFamily="Impact" TextAlignment="Center" Grid.Row="0" Grid.ColumnSpan="4"></TextBlock>
         <ListBox Name="lstRégions" SelectionChanged="lstRégions_SelectionChanged" Grid.Row="1" Background="Aqua" BorderBrush="{x:Null}" Grid.ColumnSpan="4">
-            <DataTemplate>
+            <ListBox.ItemTemplate>
+                <DataTemplate>
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="{Binding NomRegion}" Width="130"></TextBlock>
+                    <TextBlock Text="{Binding NomRegion}" Width="150"></TextBlock>
                     <TextBlock Text="{Binding CodeRegion}" Width="130"></TextBlock>
+                    <TextBlock Text="{Binding LeSecteur.LibSecteur}" Width="130"></TextBlock>
                 </StackPanel>
             </DataTemplate>
+            </ListBox.ItemTemplate>
         </ListBox>
         <TextBlock Text="Nom : " Grid.Row="2" FontFamily="Impact" FontSize="30"></TextBlock>
         <TextBlock Text="Secteur : " Grid.Row="3" FontFamily="Impact" FontSize="30"></TextBlock>
@@ -45,7 +48,7 @@
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
-                        <TextBlock Text="{Binding CodeSecteur}"></TextBlock>
+                        <TextBlock Text="{Binding LibSecteur}"></TextBlock>
                     </StackPanel>
                 </DataTemplate>
             </ComboBox.ItemTemplate>

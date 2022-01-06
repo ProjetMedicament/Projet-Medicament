@@ -23,5 +23,10 @@ namespace ProjetWPF.Vues
         {
             InitializeComponent();
         }
+
+        private void btnRetour_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

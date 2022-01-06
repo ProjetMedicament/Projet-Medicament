@@ -57,7 +57,8 @@ namespace ProjetWPF
 
         private void btnStats_Click(object sender, RoutedEventArgs e)
         {
-
+            Statistiques pstats = new Statistiques();
+            pstats.ShowDialog();
         }
 
         private void btnRegions_Click(object sender, RoutedEventArgs e)

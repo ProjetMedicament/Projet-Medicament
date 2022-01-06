@@ -136,9 +136,18 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Resource Include="Images\LogoGSB.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ClassesMetier\ClassesMetier.csproj">
+      <Project>{f25f289a-f38c-4414-a586-0989267783f0}</Project>
+      <Name>ClassesMetier</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GstBDD\GstBDD.csproj">
+      <Project>{50b52dd4-b52f-4f10-aa00-599727fb82ef}</Project>
+      <Name>GstBDD</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

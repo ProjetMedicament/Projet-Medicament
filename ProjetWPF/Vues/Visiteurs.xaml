@@ -31,17 +31,20 @@
         </Grid.Background>
         <TextBlock Text="Liste des visiteurs" FontSize="40" FontFamily="Impact" TextAlignment="Center" Grid.Row="0" Grid.ColumnSpan="4"></TextBlock>
         <ListBox Name="lstVisiteurs" SelectionChanged="lstVisiteurs_SelectionChanged" Grid.Row="1" Background="Aqua" BorderBrush="{x:Null}" Grid.ColumnSpan="4">
-            <DataTemplate>
+            <ListBox.ItemTemplate>
+                <DataTemplate>
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="{Binding NomVisiteur}" Width="50"></TextBlock>
+                    <TextBlock Text="{Binding NomVisiteur}" Width="130"></TextBlock>
                     <TextBlock Text="{Binding PrenomVisiteur}" Width="130"></TextBlock>
-                    <TextBlock Text="{Binding AdresseVisiteur}" Width="70"></TextBlock>
-                    <TextBlock Text="{Binding CPVisiteur}" Width="70"></TextBlock>
+                    <TextBlock Text="{Binding AdresseVisiteur}" Width="200"></TextBlock>
+                    <TextBlock Text="{Binding CodePostal}" Width="70"></TextBlock>
                     <TextBlock Text="{Binding VilleVisiteur}" Width="110"></TextBlock>
-                    <TextBlock Text="{Binding DEVisiteur}" Width="110"></TextBlock>
-                    <TextBlock Text="{Binding CodeLaboratoire}" Width="110"></TextBlock>
+                    <TextBlock Text="{Binding DateEmbauche}" Width="150"></TextBlock>
+                    <TextBlock Text="{Binding LeSecteur.LibSecteur}" Width="110"></TextBlock>
+                    <TextBlock Text="{Binding LeLabo.NomLabo}" Width="110"></TextBlock>
                 </StackPanel>
             </DataTemplate>
+            </ListBox.ItemTemplate>
         </ListBox>
         <TextBlock Text="Nom : " Grid.Row="2" FontFamily="Impact" FontSize="30"></TextBlock>
         <TextBlock Text="Prénom : " Grid.Row="3" FontFamily="Impact" FontSize="30"></TextBlock>
@@ -63,7 +66,7 @@
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
-                        <TextBlock Text="{Binding CodeLabo}"></TextBlock>
+                        <TextBlock Text="{Binding NomLabo}"></TextBlock>
                     </StackPanel>
                 </DataTemplate>
             </ComboBox.ItemTemplate>
@@ -72,7 +75,7 @@
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
-                        <TextBlock Text="{Binding CodeSecteur}"></TextBlock>
+                        <TextBlock Text="{Binding LibSecteur}"></TextBlock>
                     </StackPanel>
                 </DataTemplate>
             </ComboBox.ItemTemplate>

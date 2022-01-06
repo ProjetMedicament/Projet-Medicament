@@ -17,14 +17,14 @@ namespace ClassesMetier
         {
             DateAssignement = uneDate;
             LibPoste = unLibelle;
-            leVisiteur = unVisiteur;
-            laRegion = uneRegion;
+            LeVisiteur = unVisiteur;
+            LaRegion = uneRegion;
             
         }
 
         public DateTime DateAssignement { get => dateAssignement; set => dateAssignement = value; }
         public string LibPoste { get => libPoste; set => libPoste = value; }
-        public Visiteurs UnVisiteur { get => unVisiteur; set => unVisiteur = value; }
-        public Region UneRegion { get => uneRegion; set => uneRegion = value; }
+        public Visiteurs LeVisiteur { get => leVisiteur; set => leVisiteur = value; }
+        public Region LaRegion { get => laRegion; set => laRegion = value; }
     }
 }

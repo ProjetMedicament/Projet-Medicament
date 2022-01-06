@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using GstBDD;
 
 namespace ProjetWPF.Vues
 {
@@ -19,6 +20,7 @@ namespace ProjetWPF.Vues
     /// </summary>
     public partial class AjoutVisiteur : Window
     {
+        GstBdd gstbdd = new GstBdd();
         public AjoutVisiteur()
         {
             InitializeComponent();
@@ -26,12 +28,49 @@ namespace ProjetWPF.Vues
 
         private void btnValider_Click(object sender, RoutedEventArgs e)
         {
-
+            if (TxtNomVisiteur.Text == "")
+            {
+                MessageBox.Show("Veuillez entrer un nom", "Erreur de saisie", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else if (TxtPrenomVisiteur.Text == "")
+            {
+                MessageBox.Show("Veuillez entrer un prénom", "Erreur de saisie", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else if (TxtAdresseVisiteur.Text == "")
+            {
+                MessageBox.Show("Veuillez entrer une adresse", "Erreur de saisie", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else if (cboCodeSecteurs.SelectedItem == null)
+            {
+                MessageBox.Show("Veuillez choisir un secteur", "Erreur de saisie", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else if (TxtVilleVisiteur.Text == "")
+            {
+                MessageBox.Show("Veuillez entrer un poste", "Erreur de saisie", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else if (TxtDEVisiteur.SelectedDate == null)
+            {
+                MessageBox.Show("Veuillez choisir une date", "Erreur de saisie", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else if (cboCodesLabos.SelectedItem == null)
+            {
+                MessageBox.Show("Veuillez choisir un laboratoire", "Erreur de saisie", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else
+            {
+                gstbdd.AjouterVisiteur(TxtNomVisiteur.Text, TxtPrenomVisiteur.Text, TxtAdresseVisiteur.Text, TxtCPVisiteur.Text, Convert.ToInt16(cboCodeSecteurs.SelectedItem), TxtVilleVisiteur.Text, TxtDEVisiteur.SelectedDate.Value, Convert.ToInt16(cboCodesLabos.SelectedItem));
+            }
         }
 
         private void btnRetour_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            cboCodeSecteurs.ItemsSource = gstbdd.getAllSecteurs();
+            cboCodesLabos.ItemsSource = gstbdd.getAllLabos();
         }
     }
 }

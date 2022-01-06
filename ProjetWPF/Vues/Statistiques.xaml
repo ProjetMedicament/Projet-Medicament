@@ -37,13 +37,15 @@
         <TextBlock Text="% non responsables d'un secteur."  TextAlignment="Center" FontSize="10" FontFamily="Impact"  Grid.Row="2" Grid.Column="3" Margin="35,0,-22,39"/>
         <TextBlock Text="Les régions les plus actives"  TextAlignment="Center" FontSize="30" FontFamily="Impact"  Grid.Row="2" Grid.Column="0" Margin="0,0,10,10" Grid.ColumnSpan="2"/>
         <ListBox Name="lstRegionsParSecteur" Grid.Row="1" Background="Aqua" BorderBrush="{x:Null}" Grid.ColumnSpan="2">
-            <DataTemplate>
+            <ListBox.ItemTemplate>
+                <DataTemplate>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="{Binding NomSecteur}" Width="50"></TextBlock>
                     <TextBlock Text="{Binding PourcentageRegion}" Width="130"></TextBlock>
                     <TextBlock Text="{Binding TotalRegion}" Width="70"></TextBlock>
                 </StackPanel>
             </DataTemplate>
+            </ListBox.ItemTemplate>
         </ListBox>
         <ListBox Name="lstVisiteursSansSecteurs" Grid.Row="1" Background="Aquamarine" BorderBrush="{x:Null}" Grid.Column="4">
             <DataTemplate>
