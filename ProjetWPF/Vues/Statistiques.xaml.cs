@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using GstBDD;
+using ClassesMetier;
 
 namespace ProjetWPF.Vues
 {
@@ -19,6 +21,7 @@ namespace ProjetWPF.Vues
     /// </summary>
     public partial class Statistiques : Window
     {
+        GstBdd gstbdd = new GstBdd();
         public Statistiques()
         {
             InitializeComponent();
@@ -27,6 +30,12 @@ namespace ProjetWPF.Vues
         private void btnRetour_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            lstRegionsParSecteur.ItemsSource = gstbdd.getAllRegionsDansSecteurs();
+            lstVisiteursSansSecteurs.ItemsSource = gstbdd.getVisiteursSansSecteurs();
         }
     }
 }

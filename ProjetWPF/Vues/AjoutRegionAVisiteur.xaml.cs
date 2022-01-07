@@ -47,7 +47,8 @@ namespace ProjetWPF.Vues
             }
             else
             {
-                gstbdd.AjouterRegionAVisiteur((cboMatricules.SelectedItem as ClassesMetier.Visiteurs).Matricule,TxtDateAssignation.SelectedDate.Value,(cboCodesRégions.SelectedItem as Region).CodeRegion,TxtPosteVisiteur.Text);
+                gstbdd.AjouterRegionAVisiteur((cboMatricules.SelectedItem as ClassesMetier.Visiteurs).Matricule, TxtDateAssignation.SelectedDate.Value.Year, TxtDateAssignation.SelectedDate.Value.Month, TxtDateAssignation.SelectedDate.Value.Day, TxtDateAssignation.SelectedDate.Value.TimeOfDay, (cboCodesRégions.SelectedItem as Region).CodeRegion,TxtPosteVisiteur.Text);
+                MessageBox.Show("Modification réussie", "GSB", MessageBoxButton.OK, MessageBoxImage.Information);
 
             }
         }

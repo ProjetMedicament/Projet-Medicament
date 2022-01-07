@@ -37,7 +37,7 @@
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
-                        <TextBlock Text="{Binding CodeSecteur}"></TextBlock>
+                        <TextBlock Text="{Binding LibSecteur}"></TextBlock>
                     </StackPanel>
                 </DataTemplate>
             </ComboBox.ItemTemplate>

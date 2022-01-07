@@ -36,19 +36,26 @@ namespace ProjetWPF.Vues
 
         private void lstVisiteurs_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            TxtNomVisiteur.Text = (lstVisiteurs.SelectedItem as ClassesMetier.Visiteurs).NomVisiteur;
-            TxtPrenomVisiteur.Text = (lstVisiteurs.SelectedItem as ClassesMetier.Visiteurs).PrenomVisiteur;
-            TxtAdresseVisiteur.Text = (lstVisiteurs.SelectedItem as ClassesMetier.Visiteurs).AdresseVisiteur;
-            TxtCPVisiteur.Text = (lstVisiteurs.SelectedItem as ClassesMetier.Visiteurs).CodePostal;
-            cboCodeSecteurs.SelectedItem = (lstVisiteurs.SelectedItem as ClassesMetier.Visiteurs).LeSecteur.CodeSecteur;
-            TxtVilleVisiteur.Text = (lstVisiteurs.SelectedItem as ClassesMetier.Visiteurs).VilleVisiteur;
-            TxtDEVisiteur.SelectedDate = (lstVisiteurs.SelectedItem as ClassesMetier.Visiteurs).DateEmbauche;
-            cboCodesLabos.SelectedItem = (lstVisiteurs.SelectedItem as ClassesMetier.Visiteurs).LeLabo.CodeLabo;
+            if (lstVisiteurs.SelectedItem != null)
+            {
+                TxtNomVisiteur.Text = (lstVisiteurs.SelectedItem as ClassesMetier.Visiteurs).NomVisiteur;
+                TxtPrenomVisiteur.Text = (lstVisiteurs.SelectedItem as ClassesMetier.Visiteurs).PrenomVisiteur;
+                TxtAdresseVisiteur.Text = (lstVisiteurs.SelectedItem as ClassesMetier.Visiteurs).AdresseVisiteur;
+                TxtCPVisiteur.Text = (lstVisiteurs.SelectedItem as ClassesMetier.Visiteurs).CodePostal;
+                cboCodeSecteurs.SelectedItem = (lstVisiteurs.SelectedItem as ClassesMetier.Visiteurs).LeSecteur.CodeSecteur;
+                TxtVilleVisiteur.Text = (lstVisiteurs.SelectedItem as ClassesMetier.Visiteurs).VilleVisiteur;
+                TxtDEVisiteur.SelectedDate = (lstVisiteurs.SelectedItem as ClassesMetier.Visiteurs).DateEmbauche;
+                cboCodesLabos.SelectedItem = (lstVisiteurs.SelectedItem as ClassesMetier.Visiteurs).LeLabo.CodeLabo;
+            }
         }
 
         private void btnValider_Click(object sender, RoutedEventArgs e)
-        {
-            if (TxtNomVisiteur.Text == "")
+        {   
+            if (lstVisiteurs.SelectedItem == null)
+            {
+                MessageBox.Show("Veuillez choisir un visiteur", "Erreur de saisie", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else if (TxtNomVisiteur.Text == "")
             {
                 MessageBox.Show("Veuillez saisir un nom", "Erreur de saisie", MessageBoxButton.OK, MessageBoxImage.Error);
             }
@@ -82,7 +89,9 @@ namespace ProjetWPF.Vues
             }
             else
             {
-                gstbdd.UpdateVisiteurs(TxtNomVisiteur.Text, TxtPrenomVisiteur.Text, TxtAdresseVisiteur.Text, TxtCPVisiteur.Text,(cboCodeSecteurs.SelectedItem as Secteur).CodeSecteur, TxtVilleVisiteur.Text, TxtDEVisiteur.SelectedDate.Value,(cboCodesLabos.SelectedItem as Labo).CodeLabo,(lstVisiteurs.SelectedItem as ClassesMetier.Visiteurs).Matricule.ToString());
+                gstbdd.UpdateVisiteurs(TxtNomVisiteur.Text, TxtPrenomVisiteur.Text, TxtAdresseVisiteur.Text, TxtCPVisiteur.Text,(cboCodeSecteurs.SelectedItem as Secteur).CodeSecteur, TxtVilleVisiteur.Text,TxtDEVisiteur.SelectedDate.Value.Year, TxtDEVisiteur.SelectedDate.Value.Month, TxtDEVisiteur.SelectedDate.Value.Day,TxtDEVisiteur.SelectedDate.Value.TimeOfDay,(cboCodesLabos.SelectedItem as Labo).CodeLabo,(lstVisiteurs.SelectedItem as ClassesMetier.Visiteurs).Matricule.ToString());
+                lstVisiteurs.ItemsSource = gstbdd.getAllVisiteurs();
+                MessageBox.Show("Modification réussie", "GSB", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
 

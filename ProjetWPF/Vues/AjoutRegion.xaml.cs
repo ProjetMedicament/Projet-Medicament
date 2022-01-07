@@ -40,6 +40,7 @@ namespace ProjetWPF.Vues
             else
             {
                 gstbdd.AjouterRegion(TxtNomRégion.Text,(cboCodesSecteur.SelectedItem as Secteur).CodeSecteur);
+                MessageBox.Show("Modification réussie", "GSB", MessageBoxButton.OK, MessageBoxImage.Information);
 
             }
         }

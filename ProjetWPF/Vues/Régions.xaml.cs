@@ -29,8 +29,11 @@ namespace ProjetWPF.Vues
 
         private void lstRégions_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            TxtNomRégion.Text = (lstRégions.SelectedItem as Region).NomRegion;
-            cboCodesSecteur.SelectedValue = (lstRégions.SelectedItem as Region).LeSecteur.CodeSecteur;
+            if (lstRégions.SelectedItem != null)
+            {
+                TxtNomRégion.Text = (lstRégions.SelectedItem as Region).NomRegion;
+                cboCodesSecteur.SelectedValue = (lstRégions.SelectedItem as Region).LeSecteur.CodeSecteur;
+            }
         }
 
         private void btnValider_Click(object sender, RoutedEventArgs e)
@@ -46,6 +49,9 @@ namespace ProjetWPF.Vues
             else
             {
                 gstbdd.UpdateRegion((lstRégions.SelectedItem as Region).CodeRegion,(cboCodesSecteur.SelectedItem as Secteur).CodeSecteur,TxtNomRégion.Text);
+                lstRégions.ItemsSource = gstbdd.getAllRegions();
+                MessageBox.Show("Modification réussie", "GSB", MessageBoxButton.OK, MessageBoxImage.Information);
+                
             }
         }
 

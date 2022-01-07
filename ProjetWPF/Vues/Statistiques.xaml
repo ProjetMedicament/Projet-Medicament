@@ -5,8 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjetWPF.Vues"
         mc:Ignorable="d"
-        Title="Statistiques" Height="450" Width="800"
->
+        Title="Statistiques" Height="450" Width="800" Loaded="Window_Loaded">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="46*"></RowDefinition>
@@ -40,20 +39,21 @@
             <ListBox.ItemTemplate>
                 <DataTemplate>
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="{Binding NomSecteur}" Width="50"></TextBlock>
-                    <TextBlock Text="{Binding PourcentageRegion}" Width="130"></TextBlock>
-                    <TextBlock Text="{Binding TotalRegion}" Width="70"></TextBlock>
-                </StackPanel>
+                    <TextBlock Text="{Binding LibSecteur1}" Width="130"></TextBlock>
+                    <TextBlock Text="{Binding NbrRegions1}" Width="130"></TextBlock>
+                    </StackPanel>
             </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
         <ListBox Name="lstVisiteursSansSecteurs" Grid.Row="1" Background="Aquamarine" BorderBrush="{x:Null}" Grid.Column="4">
+            <ListBox.ItemTemplate>
             <DataTemplate>
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock Text="{Binding NomVisiteur}" Width="50"></TextBlock>
-                    <TextBlock Text="{Binding PrenomVisiteur}" Width="130"></TextBlock>
+                    <TextBlock Text="{Binding Nom}" Width="130"></TextBlock>
+                    <TextBlock Text="{Binding Prenom}" Width="130"></TextBlock>
                 </StackPanel>
             </DataTemplate>
+            </ListBox.ItemTemplate>
         </ListBox>
         <Button Name="btnRetour" Click="btnRetour_Click" Content="Retour" Background="Wheat" Grid.Row="6" Grid.Column="3"></Button>
     </Grid>

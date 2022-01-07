@@ -48,7 +48,7 @@
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
-                        <TextBlock Text="{Binding CodeRegion}"></TextBlock>
+                        <TextBlock Text="{Binding NomRegion}"></TextBlock>
                     </StackPanel>
                 </DataTemplate>
             </ComboBox.ItemTemplate>

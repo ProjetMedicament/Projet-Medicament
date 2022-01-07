@@ -93,9 +93,9 @@ namespace GstBDD
             dr.Close();
         }
 
-        public void UpdateVisiteurs(string nom,string prenom,string adressse,string cp,int secteur,string ville,DateTime date,int codeLabo, string matricule)
+        public void UpdateVisiteurs(string nom,string prenom,string adressse,string cp,int secteur,string ville,int year,int month,int day,TimeSpan time,int codeLabo, string matricule)
         {
-            cmd = new MySqlCommand("UPDATE visiteur SET VIS_NOM ='" + nom + "',VIS_PRENOM = '" + prenom + "',VIS_ADRESSE = '" + adressse + "',VIS_CP = '" + cp + "',visiteur.SEC_CODE = '" + secteur + "',VIS_VILLE = '" + ville + "',VIS_DATEEMBAUCHE = CONVERT(datetime, '" + date + "'),visiteur.LAB_CODE = " + codeLabo + "  WHERE VIS_MATRICULE =" + matricule, cnx);
+            cmd = new MySqlCommand("UPDATE visiteur SET VIS_NOM ='" + nom + "',VIS_PRENOM = '" + prenom + "',VIS_ADRESSE = '" + adressse + "',VIS_CP = '" + cp + "',visiteur.SEC_CODE = '" + secteur + "',VIS_VILLE = '" + ville + "',VIS_DATEEMBAUCHE = '"+year+"-"+month+"-"+day+" "+time+"',visiteur.LAB_CODE = " + codeLabo + "  WHERE VIS_MATRICULE =" + matricule, cnx);
             dr = cmd.ExecuteReader();
             dr.Read();
             dr.Close();
@@ -109,20 +109,51 @@ namespace GstBDD
             dr.Close();
         }
 
-        public void AjouterVisiteur(string nom, string prenom, string adresse, string cp,int secteur,string ville, DateTime date,int codeLabo)
+        public void AjouterVisiteur(string nom, string prenom, string adresse, string cp,int secteur,string ville,int year,int month,int day,TimeSpan time,int codeLabo)
         {
-            cmd = new MySqlCommand("INSERT INTO visiteurs (VIS_NOM,VIS_PRENOM,VIS_ADRESSE,VIS_CP,visiteurs.SEC_CODE,VIS_VILLE,VIS_DATEEMBACUHE) VALUES ('"+ nom + "','" + prenom + "', '" + adresse + "', '" + cp + "', '" + secteur + "','" + ville + "','" + date + "','" + codeLabo + "')", cnx);
+            cmd = new MySqlCommand("INSERT INTO visiteur (VIS_NOM,VIS_PRENOM,VIS_ADRESSE,VIS_CP,visiteur.SEC_CODE,VIS_VILLE,VIS_DATEEMBAUCHE,visiteur.LAB_CODE) VALUES ('"+ nom + "','" + prenom + "', '" + adresse + "', '" + cp + "', '" + secteur + "','" + ville + "','" + year + "-" + month + "-" + day + " " + time + "','" + codeLabo + "')", cnx);
             cmd.ExecuteNonQuery();
 
             dr.Close();
         }
 
-        public void AjouterRegionAVisiteur(int matricule, DateTime dateassignation, int coderegion, string poste)
+        public void AjouterRegionAVisiteur(int matricule,int year,int month,int day,TimeSpan time, int coderegion, string poste)
         {
-            cmd = new MySqlCommand("INSERT INTO travailler (VIS_MATRICULE,JJMMAA,REG_CODE,TRA_ROLE) VALUES ('" + matricule + "','" + dateassignation + "','" + coderegion + "','" + poste + "')", cnx);
+            cmd = new MySqlCommand("INSERT INTO travailler (VIS_MATRICULE,JJMMAA,REG_CODE,TRA_ROLE) VALUES ('" + matricule + "','" + year + "-" + month + "-" + day + " " + time + "','" + coderegion + "','" + poste + "')", cnx);
             cmd.ExecuteNonQuery();
 
             dr.Close();
+        }
+
+        public List<RegionsDansSecteurs> getAllRegionsDansSecteurs()
+        {
+            List<RegionsDansSecteurs> unTableau = new List<RegionsDansSecteurs>();
+            // Ecrire votre requête
+            cmd = new MySqlCommand("SELECT SEC_LIBELLE,COUNT(REG_CODE) FROM secteur INNER JOIN region ON secteur.SEC_CODE = region.SEC_CODE GROUP BY SEC_LIBELLE", cnx);
+            dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                RegionsDansSecteurs uneDonnée = new RegionsDansSecteurs((dr[0].ToString()), Convert.ToInt16(dr[1].ToString()));
+                unTableau.Add(uneDonnée);
+
+            }
+            dr.Close();
+            return unTableau;
+        }
+
+        public List<SansSecteur> getVisiteursSansSecteurs()
+        {
+            List<SansSecteur> mesVisiteurs = new List<SansSecteur>();
+            // Ecrire votre requête
+            cmd = new MySqlCommand("SELECT VIS_NOM,VIS_PRENOM FROM visiteur WHERE visiteur.SEC_CODE IS null", cnx);
+            dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                SansSecteur unNouveauVisiteur = new SansSecteur((dr[0].ToString()),(dr[1].ToString()));
+                mesVisiteurs.Add(unNouveauVisiteur);
+            }
+            dr.Close();
+            return mesVisiteurs;
         }
     }
 }

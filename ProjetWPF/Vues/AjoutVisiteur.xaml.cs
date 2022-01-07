@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using GstBDD;
+using ClassesMetier;
 
 namespace ProjetWPF.Vues
 {
@@ -58,7 +59,8 @@ namespace ProjetWPF.Vues
             }
             else
             {
-                gstbdd.AjouterVisiteur(TxtNomVisiteur.Text, TxtPrenomVisiteur.Text, TxtAdresseVisiteur.Text, TxtCPVisiteur.Text, Convert.ToInt16(cboCodeSecteurs.SelectedItem), TxtVilleVisiteur.Text, TxtDEVisiteur.SelectedDate.Value, Convert.ToInt16(cboCodesLabos.SelectedItem));
+                gstbdd.AjouterVisiteur(TxtNomVisiteur.Text, TxtPrenomVisiteur.Text, TxtAdresseVisiteur.Text, TxtCPVisiteur.Text,(cboCodeSecteurs.SelectedItem as Secteur).CodeSecteur, TxtVilleVisiteur.Text, TxtDEVisiteur.SelectedDate.Value.Year, TxtDEVisiteur.SelectedDate.Value.Month, TxtDEVisiteur.SelectedDate.Value.Day, TxtDEVisiteur.SelectedDate.Value.TimeOfDay,(cboCodesLabos.SelectedItem as Labo).CodeLabo);
+                MessageBox.Show("Modification réussie", "GSB", MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
 
